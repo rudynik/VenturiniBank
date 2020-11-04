@@ -1,0 +1,37 @@
+﻿@model Banco.Models.ContaCorrente
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <h4 style="margin-left: 38%">ContaCorrente</h4>
+<hr />
+<div class="row text-center" style="margin-left: 30%">
+    
+    <div class="col-md-4">
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Agencia" class="control-label"></label>
+                <input asp-for="Agencia" class="form-control" />
+                <span asp-validation-for="Agencia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Numero" class="control-label"></label>
+                <input asp-for="Numero" class="form-control" />
+                <span asp-validation-for="Numero" class="text-danger"></span>
+            </div>
+            @if (ViewBag.error == true)
+            {
+                <div class="form-group">
+                    <span class="text-danger">Agencia e/ou conta inválida</span>
+                </div>
+            }
+
+            <div class="form-group">
+                <input type="submit" value="Entrar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
