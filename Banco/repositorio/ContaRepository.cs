@@ -24,15 +24,28 @@ namespace Banco.repositorio
                           .FirstOrDefault();
         }
 
-        public async void AddConta(ContaCorrente conta)
+        public void AddConta(ContaCorrente conta)
         {
             context.ContaCorrente.Add(conta);
-            await context.SaveChangesAsync();
+            context.SaveChanges();
         }
 
-        public async Task<ContaCorrente> BuscarConta(int id)
+        public ContaCorrente BuscarConta(int id)
         {
-            return await context.ContaCorrente.FindAsync(id);
+            return context.ContaCorrente.Where(x => x.Id == id).FirstOrDefault();
+        }
+
+        public void AtualizarConta(ContaCorrente conta)
+        {
+            context.ContaCorrente.Update(conta);
+            context.SaveChanges();
+        }
+
+        public string GetCliente(int id)
+        {
+            return context.Cliente.Where(x => x.Id == id)
+                                  .Select(x => x.Nome)
+                                  .FirstOrDefault();
         }
     }
 }

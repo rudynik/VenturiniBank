@@ -11,6 +11,8 @@ namespace Banco.repositorio
         ContaCorrente GetConta(ContaCorrente conta);
         void AddConta(ContaCorrente conta);
 
-        Task<ContaCorrente> BuscarConta(int id);
+        ContaCorrente BuscarConta(int id);
+        void AtualizarConta(ContaCorrente conta);
+        string GetCliente(int id);
     }
 }

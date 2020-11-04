@@ -19,5 +19,11 @@ namespace Banco.data
 
         public DbSet<ContaCorrente> ContaCorrente { get; set; }
         public DbSet<Cliente> Cliente { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ContaCorrente>()
+                .HasOne(c => c.Titular);
+        }
     }
 }

@@ -50,9 +50,14 @@ namespace Banco.Models
             return true;
         }
 
-        public void Depositar(double valor)
+        public bool Depositar(double valor)
         {
+            if (valor <= 0)
+            {
+                return false;
+            }
             _saldo += valor;
+            return true;
         }
 
 
